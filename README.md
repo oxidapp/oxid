@@ -1,6 +1,4 @@
 <div align="center">
-<img src="/docs/oxid-dark-mode.svg#gh-dark-mode-only" width="250" />
-<img src="/docs/oxid-dark-mode.svg#gh-light-mode-only" width="250" />
   <h1>Oxid</h1>
   <p>This template should help get you started developing with Tauri + SolidStart + TypeScript.</p>
 </div>
@@ -44,8 +42,6 @@ pnpm tauri dev
 
 ## iOS 🍎
 
-<img src="/docs/ios.png" align="right" height="300"/>
-
 [Check the prerequisites](https://v2.tauri.app/guides/prerequisites/#ios) for having iOS ready to run (MacOS only).
 Once that is done, let’s create the XCode project:
 
@@ -63,8 +59,6 @@ pnpm tauri ios dev --open
 This command will open XCode with your project, select the simulator and get ready to run.
 
 ## Android 🤖
-
-<img src="/docs/android.png" align="right" height="300"/>
 
 [Android Studio and a few other steps will be required](https://v2.tauri.app/guides/prerequisites/#android) to get things up and running.
 Once that's done, you can initialize the project:
