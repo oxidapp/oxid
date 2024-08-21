@@ -1,10 +1,8 @@
 [package]
 name = "oxid"
 version = "0.0.0"
-description = "Oxid template: with batteries included."
 authors = ["you"]
 license = ""
-repository = "https://github.com/atilafassina/oxid"
 edition = "2021"
 
 [lib]
