@@ -1,8 +1,7 @@
 import { defineConfig } from "@solidjs/start/config";
 import { internalIpV4 } from "internal-ip";
 
-// @ts-expect-error process is a nodejs global
-const mobile = !!/android|ios/.exec(process.env.TAURI_ENV_PLATFORM);
+const isMobile = !!/android|ios/.exec(process.env.TAURI_ENV_PLATFORM);
 
 const host = await internalIpV4();
 
@@ -16,10 +15,10 @@ export default defineConfig({
     // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
     // 1. tauri expects a fixed port, fail if that port is not available
     server: {
-      host: mobile ? "0.0.0.0" : false, // listen on all addresses
+      host: isMobile ? "0.0.0.0" : false, // listen on all addresses
       port: 1420,
       strictPort: true,
-      hmr: mobile
+      hmr: isMobile
         ? {
             protocol: "ws",
             host,
