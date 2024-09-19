@@ -24,7 +24,11 @@
     "noFallthroughCasesInSwitch": true,
 
     "jsx": "preserve",
-    "jsxImportSource": "solid-js"
+    "jsxImportSource": "solid-js",
+    "types": [
+      "vite-plugin-solid-svg/types-component-solid",
+      "vite/client"
+    ],
   },
   "include": ["src", "tests"],
   "references": [{ "path": "./tsconfig.node.json" }]

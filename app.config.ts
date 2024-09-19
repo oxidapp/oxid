@@ -1,5 +1,6 @@
 import { defineConfig } from "@solidjs/start/config";
 import { internalIpV4 } from "internal-ip";
+import solidSvg from "vite-plugin-solid-svg";
 
 const isMobile = !!/android|ios/.exec(process.env.TAURI_ENV_PLATFORM);
 
@@ -30,6 +31,7 @@ export default defineConfig({
         ignored: ["**/src-tauri/**"],
       },
     },
+    plugins: [solidSvg()],
     // 3. to make use of `TAURI_DEBUG` and other env variables
     // https://tauri.studio/v1/api/config#buildconfig.beforedevcommand
     envPrefix: ["VITE_", "TAURI_"],
