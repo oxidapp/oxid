@@ -1,8 +1,9 @@
 import { createSignal } from "solid-js";
-import SidebarItem from "./SidebarItem";
 
+import SidebarItem from "./SidebarItem";
 import AgendaIcon from "~/assets/agenda.svg";
 import OxidIcon from "~/assets/oxid.svg";
+
 export default function SideNavigationBasic() {
   const [isOpen, setIsOpen] = createSignal(false);
 
@@ -11,7 +12,7 @@ export default function SideNavigationBasic() {
       <button
         title="Side navigation"
         type="button"
-        class={`visible fixed left-6 top-6 z-40 order-10 block h-10 w-10 self-center rounded bg-white opacity-100 lg:hidden ${isOpen() ? "visible opacity-100 [&_span:nth-child(1)]:w-6 [&_span:nth-child(1)]:translate-y-0 [&_span:nth-child(1)]:rotate-45 [&_span:nth-child(2)]:-rotate-45 [&_span:nth-child(3)]:w-0 " : ""}`}
+        class={`visible fixed right-6 top-6 z-40 order-10 block h-10 w-10 self-center rounded bg-neutral-200 opacity-100 md:hidden ${isOpen() ? "visible opacity-100 [&_span:nth-child(1)]:w-6 [&_span:nth-child(1)]:translate-y-0 [&_span:nth-child(1)]:rotate-45 [&_span:nth-child(2)]:-rotate-45 [&_span:nth-child(3)]:w-0 " : ""}`}
         aria-haspopup="menu"
         aria-label="Side navigation"
         aria-expanded={isOpen() ? true : false}
@@ -37,7 +38,7 @@ export default function SideNavigationBasic() {
       <aside
         id="nav-menu-1"
         aria-label="Side navigation"
-        class={`fixed bottom-0 right-0 top-0 z-40 flex w-72 flex-col bg-neutral-900 transition-transform lg:translate-x-0 ${isOpen() ? "translate-x-0" : "translate-x-full"}`}
+        class={`fixed bottom-0 right-0 top-0 z-40 flex w-72 flex-col bg-neutral-900 transition-transform md:translate-x-0 ${isOpen() ? "translate-x-0" : "translate-x-full"}`}
       >
         <nav
           aria-label="side navigation"
@@ -59,7 +60,7 @@ export default function SideNavigationBasic() {
 
       {/* Backdrop */}
       <div
-        class={`fixed bottom-0 left-0 right-0 top-0 z-30 bg-slate-900/20 transition-colors sm:hidden ${isOpen() ? "block" : "hidden"}`}
+        class={`fixed bottom-0 left-0 right-0 top-0 z-30 bg-slate-900/20 transition-colors md:hidden ${isOpen() ? "block" : "hidden"}`}
         onClick={() => setIsOpen(false)}
       ></div>
     </>
