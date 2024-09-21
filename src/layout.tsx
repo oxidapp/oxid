@@ -1,5 +1,5 @@
 import { ParentComponent } from "solid-js";
-import Sidebar from "./components/Sidebar/Sidebar";
+import Sidebar from "./components/Sidebar";
 
 const RootLayout: ParentComponent = ({ children }) => {
   return (
