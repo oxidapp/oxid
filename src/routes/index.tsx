@@ -1,5 +1,6 @@
 import { createSignal, onMount } from "solid-js";
 import { commands, events } from "~/bindings";
+import { Button } from "~/components/ui/button";
 
 export default function Page() {
   const [greetMsg, setGreetMsg] = createSignal("");
@@ -18,10 +19,8 @@ export default function Page() {
   });
 
   return (
-    <div class="flex min-h-screen flex-col justify-center gap-6 text-center dark:bg-neutral-800 dark:text-neutral-200">
-      <h1 class="text-center text-4xl font-semibold text-neutral-50">
-        Oxid
-      </h1>
+    <div class="flex min-h-screen flex-col justify-center gap-6 text-center">
+      <h1 class="text-center text-4xl font-semibold">Oxid</h1>
 
       <div class="flex justify-center">
         <a
@@ -53,7 +52,7 @@ export default function Page() {
       </p>
 
       <form
-        class="flex justify-center"
+        class="flex items-center justify-center gap-2"
         onSubmit={(e) => {
           e.preventDefault();
           greet();
@@ -61,16 +60,11 @@ export default function Page() {
       >
         <input
           id="greet-input"
-          class="text-md mr-1 rounded-md p-4 placeholder:text-neutral-400 focus:outline focus:outline-1 focus:outline-cyan-400 dark:bg-neutral-900"
+          class="text-md mr-1 rounded-md p-4 placeholder:text-neutral-400 focus:outline focus:outline-1 focus:outline-cyan-400"
           onChange={(e) => setName(e.currentTarget.value)}
           placeholder="Enter a name..."
         />
-        <button
-          type="submit"
-          class="text-md rounded-md p-4 dark:bg-neutral-900 dark:text-neutral-200"
-        >
-          Greet
-        </button>
+        <Button type="submit">Greet</Button>
       </form>
 
       <p>{greetMsg()}</p>
