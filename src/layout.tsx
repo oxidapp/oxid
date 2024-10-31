@@ -27,7 +27,7 @@ const RootLayout: ParentComponent = ({ children }) => {
       <Show
         when={isDesktop()}
         children={
-          <Resizable>
+          <Resizable class='overflow-hidden'>
             <ResizablePanel initialSize={0.8}>{children}</ResizablePanel>
             <ResizableHandle />
             <ResizablePanel
