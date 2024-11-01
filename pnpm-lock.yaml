@@ -23,6 +23,12 @@ dependencies:
   '@solidjs/start':
     specifier: ^1.0.8
     version: 1.0.8(solid-js@1.9.2)(vinxi@0.4.3)(vite@5.4.9)
+  '@tanstack/solid-form':
+    specifier: ^0.34.1
+    version: 0.34.1(solid-js@1.9.2)
+  '@tanstack/zod-form-adapter':
+    specifier: ^0.34.1
+    version: 0.34.1(zod@3.23.8)
   '@tauri-apps/api':
     specifier: 2.0.2
     version: 2.0.2
@@ -53,9 +59,15 @@ dependencies:
   tailwindcss-animate:
     specifier: ^1.0.7
     version: 1.0.7(tailwindcss@3.4.14)
+  tinykeys:
+    specifier: ^3.0.0
+    version: 3.0.0
   vinxi:
     specifier: ^0.4.3
     version: 0.4.3
+  zod:
+    specifier: ^3.23.8
+    version: 3.23.8
 
 devDependencies:
   '@tauri-apps/cli':
@@ -1531,6 +1543,44 @@ packages:
     resolution: {integrity: sha512-UoKGxQ3r5kYI9dALKJapMmuK+1zWM/H17Z1+iwnNmzcJRnfFuevZs375TA5rW31pu4BS4NoSy1fRsexDXfWn5w==}
     dependencies:
       tslib: 2.6.3
+    dev: false
+
+  /@tanstack/form-core@0.34.1:
+    resolution: {integrity: sha512-W8xRWcvlK5oek9V/JPblUyBf/cRb06nxqJTdEf7wZ6HxPnB0V9nNwZlWxvSfkMrbSkV+/H972Evy3cVc6WBB7g==}
+    dependencies:
+      '@tanstack/store': 0.5.5
+    dev: false
+
+  /@tanstack/solid-form@0.34.1(solid-js@1.9.2):
+    resolution: {integrity: sha512-sZBc8HbFI0oaf7wZzkeMFNEj7CUbU0lU4I3ufQ/ovlTMXcjXPRJ+rgfu/nrq83/DzRlfSbIoPv1efeMUKUx3cQ==}
+    peerDependencies:
+      solid-js: ^1.6.0
+    dependencies:
+      '@tanstack/form-core': 0.34.1
+      '@tanstack/solid-store': 0.5.6(solid-js@1.9.2)
+      solid-js: 1.9.2
+    dev: false
+
+  /@tanstack/solid-store@0.5.6(solid-js@1.9.2):
+    resolution: {integrity: sha512-YvRT++wB4keAnI67mlxB7FNoT9kI5+2zylDZA0b33bauOwhxVugHVvNv+tUwXCly/8G8kY8EE0peN9Wcv5vhVA==}
+    peerDependencies:
+      solid-js: ^1.6.0
+    dependencies:
+      '@tanstack/store': 0.5.5
+      solid-js: 1.9.2
+    dev: false
+
+  /@tanstack/store@0.5.5:
+    resolution: {integrity: sha512-EOSrgdDAJExbvRZEQ/Xhh9iZchXpMN+ga1Bnk8Nmygzs8TfiE6hbzThF+Pr2G19uHL6+DTDTHhJ8VQiOd7l4tA==}
+    dev: false
+
+  /@tanstack/zod-form-adapter@0.34.1(zod@3.23.8):
+    resolution: {integrity: sha512-BVLzOXMgQqSS3gROyxP2PdmhRLzfWRThdTDMtqdg9Oi8Mv+DlMJ5nSwvOFBzVPra+DyUVzNySnsR3DDNDVXzKA==}
+    peerDependencies:
+      zod: ^3.x
+    dependencies:
+      '@tanstack/form-core': 0.34.1
+      zod: 3.23.8
     dev: false
 
   /@tauri-apps/api@2.0.2:
@@ -4729,6 +4779,10 @@ packages:
 
   /tiny-invariant@1.3.3:
     resolution: {integrity: sha512-+FbBPE1o9QAYvviau/qC5SE3caw21q3xkvWKBtja5vgqOWIHHJ3ioaq1VPfn/Szqctz2bU/oYeKd9/z5BL+PVg==}
+    dev: false
+
+  /tinykeys@3.0.0:
+    resolution: {integrity: sha512-nazawuGv5zx6MuDfDY0rmfXjuOGhD5XU2z0GLURQ1nzl0RUe9OuCJq+0u8xxJZINHe+mr7nw8PWYYZ9WhMFujw==}
     dev: false
 
   /to-fast-properties@2.0.0:

@@ -27,7 +27,7 @@ const RootLayout: ParentComponent = ({ children }) => {
       <Show
         when={isDesktop()}
         children={
-          <Resizable class='overflow-hidden'>
+          <Resizable class="overflow-hidden">
             <ResizablePanel initialSize={0.8}>{children}</ResizablePanel>
             <ResizableHandle />
             <ResizablePanel
@@ -66,15 +66,6 @@ const RootLayout: ParentComponent = ({ children }) => {
         }
       />
     </Presence>
-  );
-
-  return (
-    <div class="min-h-screen">
-      <div class="flex ">
-        <div class="flex-1">{children}</div>
-        {/* <Navigation /> */}
-      </div>
-    </div>
   );
 };
 

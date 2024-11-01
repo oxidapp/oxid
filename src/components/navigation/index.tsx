@@ -8,12 +8,12 @@ const Navigation: Component<{ isDesktop: boolean; isCollapsed: boolean }> = (
 ) => {
   const links = [
     {
-      title: "agenda",
+      title: "tauri example page",
       href: "/",
     },
     {
-      title: "oxids",
-      href: "/oxids",
+      title: "tasks",
+      href: "/tasks",
     },
   ];
 
