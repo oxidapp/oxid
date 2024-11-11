@@ -60,8 +60,6 @@ export const TaskProvider: ContextProviderComponent<{
       isCompleted: !(await db.tasks.get(id))?.isCompleted,
     });
 
-    refetch();
-
     return updatedTaskId;
   };
 
