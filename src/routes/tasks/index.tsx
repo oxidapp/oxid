@@ -2,11 +2,21 @@ import { Component } from "solid-js";
 import AddTaskDialog from "~/components/tasks/add-task-dialog";
 import TaskList from "~/components/tasks/task-list";
 import { Button } from "~/components/ui/button";
-import { TaskProvider, useTaskContext } from "~/context/task-context";
-import { getAllTasks } from "~/lib/tasks";
+import { useTaskContext } from "~/context/task-context";
+import { deleteAllTasks, generate5000Tasks } from "~/lib/tasks";
 
 const TasksPage: Component = () => {
-  const { allTasks } = useTaskContext();
+  const { allTasks, refetch } = useTaskContext();
+
+  const onGenerateClick = async () => {
+    await generate5000Tasks();
+    refetch();
+  };
+
+  const onDeleteAllClick = async () => {
+    await deleteAllTasks();
+    refetch();
+  };
 
   return (
     <div class="container py-4">
@@ -29,6 +39,14 @@ const TasksPage: Component = () => {
           >
             add task
           </Button>
+
+          <Button variant={"secondary"} onclick={onGenerateClick}>
+            generate 5000 tasks
+          </Button>
+
+          <Button variant={"destructive"} onclick={onDeleteAllClick}>
+            delete all tasks
+          </Button>
         </div>
 
         {allTasks.loading && <p>Loading...</p>}
@@ -42,8 +60,4 @@ const TasksPage: Component = () => {
   );
 };
 
-export default (
-  <TaskProvider value={{ fetcher: getAllTasks }}>
-    <TasksPage />
-  </TaskProvider>
-);
+export default TasksPage;

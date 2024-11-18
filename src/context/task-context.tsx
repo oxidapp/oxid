@@ -1,21 +1,19 @@
 import { InsertType } from "dexie";
 import {
-  ContextProviderComponent,
   createContext,
   createResource,
   InitializedResource,
-  ResourceFetcher,
+  ParentComponent,
   useContext,
 } from "solid-js";
 import { Task } from "~/components/tasks/types";
 import { db } from "~/lib/db";
-
-import { createTaskStore } from "~/stores/task-store";
+import { getAllTasks } from "~/lib/tasks";
 
 type TaskContext = {
   allTasks: InitializedResource<Task[]>;
   mutate: (fn: (tasks: Task[]) => Task[]) => Task[];
-  refetch: ResourceFetcher<any, any>;
+  refetch: (info?: unknown) => Task[] | Promise<Task[]> | undefined | null;
   addTask: (task: InsertType<Task, "id">) => Promise<number>;
   removeTask: (id: number) => Promise<Task[]>;
   toggleTask: (id: number) => Promise<number>;
@@ -23,16 +21,10 @@ type TaskContext = {
 
 const TaskContext = createContext<TaskContext>();
 
-export const TaskProvider: ContextProviderComponent<{
-  fetcher: ResourceFetcher<true, Task[], unknown>;
-}> = (props) => {
-  const [allTasks, { mutate, refetch }] = createResource<Task[]>(
-    props.value.fetcher,
-    {
-      storage: createTaskStore,
-      initialValue: [],
-    },
-  );
+export const TaskProvider: ParentComponent = (props) => {
+  const [allTasks, { mutate, refetch }] = createResource<Task[]>(getAllTasks, {
+    initialValue: [],
+  });
 
   const addTask = async (task: InsertType<Task, "id">) => {
     const id = await db.tasks.add(task);
@@ -46,7 +38,6 @@ export const TaskProvider: ContextProviderComponent<{
       tasks.filter((task) => task.id !== id),
     );
     await db.tasks.delete(id);
-
     return tasks;
   };
 
