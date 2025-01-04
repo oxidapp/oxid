@@ -1,10 +1,9 @@
-import { Component } from 'solid-js';
-import TaskList from '~/components/tasks/task-list';
-import { useTaskContext } from '~/context/task-context';
+import { Component } from "solid-js";
+import TaskList from "~/components/tasks/task-list";
+import { useTaskContext } from "~/context/task-context";
 
-const WeekView : Component = () => {
+const WeekView: Component = () => {
   const { allTasks } = useTaskContext();
-
 
   const getAllTasksThisWeek = () =>
     allTasks().filter(
@@ -20,6 +19,5 @@ const WeekView : Component = () => {
     </div>
   );
 };
-
 
 export default WeekView;

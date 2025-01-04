@@ -26,7 +26,7 @@ export default function Page() {
         <a
           href="https://tauri.app"
           target="_blank"
-          class="drop-shadow-sm hover:drop-shadow-[0_0_32px_#24c8db]  "
+          class="drop-shadow-sm hover:drop-shadow-[0_0_32px_#24c8db]"
         >
           <img
             src="/tauri.svg"

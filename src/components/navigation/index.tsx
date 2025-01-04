@@ -18,7 +18,7 @@ const Navigation: Component<{ isDesktop: boolean; isCollapsed: boolean }> = (
     {
       title: "agenda",
       href: "/agenda",
-    }
+    },
   ];
 
   const isDesktop = () => props.isDesktop;

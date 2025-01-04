@@ -13,16 +13,12 @@ const MobileNavigation: Component<MobileNavigationProps> = ({ links }) => {
   return (
     <>
       <Motion
-        class='fixed bottom-4 left-0 right-0 mx-auto w-fit'
+        class="fixed bottom-4 left-0 right-0 mx-auto w-fit"
         initial={{ y: "100%" }}
         animate={{ y: 0 }}
         exit={{ y: "100%", opacity: 0 }}
       >
-        <Button
-          ondblclick={() => setIsOpen(true)}
-        >
-          ⇑ x2
-        </Button>
+        <Button ondblclick={() => setIsOpen(true)}>⇑ x2</Button>
       </Motion>
       <Drawer open={isOpen()} onOpenChange={setIsOpen}>
         <DrawerContent>

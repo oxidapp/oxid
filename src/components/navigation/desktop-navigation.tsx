@@ -48,7 +48,8 @@ const DesktopNavigation: Component<NavProps> = (props) => {
                       "size-9",
                     )}
                   >
-                    {item.title[0]}<span class="sr-only">{item.title}</span>
+                    {item.title[0]}
+                    <span class="sr-only">{item.title}</span>
                   </TooltipTrigger>
                   <TooltipContent class="flex items-center gap-4">
                     {item.title}
