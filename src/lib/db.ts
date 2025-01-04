@@ -9,5 +9,5 @@ export const db = new Dexie("TasksDatabase") as Dexie & {
 };
 
 db.version(1).stores({
-  tasks: "++id",
+  tasks: "++id plannedDoDate",
 });

@@ -1,15 +1,14 @@
 import { Component } from "solid-js";
-import AddTaskDialog from "~/components/tasks/add-task-dialog";
 import TaskList from "~/components/tasks/task-list";
 import { Button } from "~/components/ui/button";
 import { useTaskContext } from "~/context/task-context";
-import { deleteAllTasks, generate5000Tasks } from "~/lib/tasks";
+import { deleteAllTasks, generateTasks } from "~/lib/tasks";
 
 const TasksPage: Component = () => {
   const { allTasks, refetch } = useTaskContext();
 
-  const onGenerateClick = async () => {
-    await generate5000Tasks();
+  const onGenerateClick = async (numberOfTasks: number) => {
+    await generateTasks(numberOfTasks);
     refetch();
   };
 
@@ -40,10 +39,12 @@ const TasksPage: Component = () => {
             add task
           </Button>
 
-          <Button variant={"secondary"} onclick={onGenerateClick}>
+          <Button variant={"secondary"} onclick={() => onGenerateClick(5000)}>
             generate 5000 tasks
           </Button>
-
+          <Button variant={"secondary"} onclick={() => onGenerateClick(10)}>
+            generate 10 tasks
+          </Button>
           <Button variant={"destructive"} onclick={onDeleteAllClick}>
             delete all tasks
           </Button>
@@ -51,8 +52,6 @@ const TasksPage: Component = () => {
 
         {allTasks.loading && <p>Loading...</p>}
         {allTasks.error && <p>Error: {allTasks.error.message}</p>}
-
-        <AddTaskDialog />
 
         <TaskList tasks={allTasks()} />
       </div>

@@ -15,6 +15,10 @@ const Navigation: Component<{ isDesktop: boolean; isCollapsed: boolean }> = (
       title: "tasks",
       href: "/tasks",
     },
+    {
+      title: "agenda",
+      href: "/agenda",
+    }
   ];
 
   const isDesktop = () => props.isDesktop;

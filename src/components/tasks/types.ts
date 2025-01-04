@@ -4,4 +4,5 @@ export type Task = {
   isCompleted: boolean;
   createdAt: Date;
   dueDate: Date;
+  plannedDoDate?: Date;
 };

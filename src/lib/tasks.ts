@@ -5,12 +5,12 @@ export async function getAllTasks() {
   return await db.tasks.toArray();
 }
 
-export async function generate5000Tasks() {
+export async function generateTasks(numberOfTasks: number) {
   const tasks: Task[] = [];
-  
+
   const latestTaskId = await db.tasks.count();
-  
-  for (let i = 0; i < 5000; i++) {
+
+  for (let i = 0; i < numberOfTasks; i++) {
     tasks.push({
       id: latestTaskId + i,
       title: `Task ${i}`,
@@ -25,4 +25,17 @@ export async function generate5000Tasks() {
 
 export async function deleteAllTasks() {
   await db.tasks.clear();
+}
+export async function getTasksWithPlannedDoDate() {
+  return await db.tasks.filter((task) => Boolean(task.plannedDoDate)).toArray();
+}
+
+export async function getTasksInBacklog() {
+  return await db.tasks
+    .filter((task) => !task.plannedDoDate && !task.isCompleted)
+    .toArray();
+}
+
+export async function updateTask(id: number, task: Partial<Task>) {
+  await db.tasks.update(id, task);
 }

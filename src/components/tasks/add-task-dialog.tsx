@@ -19,6 +19,8 @@ import { z } from "zod";
 import { createForm } from "@tanstack/solid-form";
 import { tinykeys } from "tinykeys";
 import { useTaskContext } from "~/context/task-context";
+import { InsertType } from "dexie";
+import { Task } from "./types";
 
 const AddTaskDialog: Component = () => {
   const [isOpen, setIsOpen] = createSignal(false);
@@ -29,10 +31,7 @@ const AddTaskDialog: Component = () => {
     },
   });
 
-  console.log('render')
-
   onCleanup(() => {
-    console.log("unsub");
     keyBindingUnsubscribe();
   });
 
@@ -56,11 +55,12 @@ const AddTaskDialog: Component = () => {
     },
 
     onSubmit: async ({ value, formApi }) => {
-      const newTaskToAdd = {
+      const newTaskToAdd: InsertType<Task, "id"> = {
         title: value.title,
         dueDate: new Date(value.dueDate),
         isCompleted: false,
         createdAt: new Date(),
+        plannedDoDate: undefined,
       };
 
       addTask({ ...newTaskToAdd });
@@ -74,10 +74,8 @@ const AddTaskDialog: Component = () => {
     <Dialog open={isOpen()} onOpenChange={setIsOpen}>
       <DialogContent class="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
-          <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
-          </DialogDescription>
+          <DialogTitle>Add new task</DialogTitle>
+          <DialogDescription>Enter a title and a due date.</DialogDescription>
         </DialogHeader>
 
         <div class="grid gap-4 py-4">

@@ -5,6 +5,7 @@ import { ColorModeProvider } from "@kobalte/core";
 import "./styles.css";
 import RootLayout from "./layout";
 import { TaskProvider } from "./context/task-context";
+import AddTaskDialog from "./components/tasks/add-task-dialog";
 
 export default function App() {
   return (
@@ -13,6 +14,8 @@ export default function App() {
         <Router root={RootLayout}>
           <FileRoutes />
         </Router>
+
+        <AddTaskDialog />
       </TaskProvider>
     </ColorModeProvider>
   );
